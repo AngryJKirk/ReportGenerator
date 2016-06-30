@@ -1,6 +1,5 @@
 import com.univocity.parsers.tsv.TsvParser;
 import com.univocity.parsers.tsv.TsvParserSettings;
-import javafx.scene.chart.PieChart;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -11,10 +10,20 @@ import java.util.List;
 /**
  * Created by Deadliest Baddest Fattest Motherfucker in Universe on 30.06.2016.
  */
-public class TSVReader {
-    List<DataObject> dataObjects = new ArrayList<DataObject>();
 //TODO refactor this shit
-    List<String[]> strings = new LinkedList<String[]>();
+public class TSVReader {
+    private List<DataObject> dataObjects = new ArrayList<DataObject>();
+
+    public List<DataObject> getDataObjects() {
+        return dataObjects;
+    }
+
+    public List<String[]> getStrings() {
+        return strings;
+    }
+
+    private List<String[]> results = new LinkedList<String[]>();
+    private List<String[]> strings = new LinkedList<String[]>();
     public TSVReader(String filePath) {
         this.TSVFile = new File(filePath);
     }
@@ -28,15 +37,18 @@ public class TSVReader {
         TsvParser parser = new TsvParser(settings);
 
         strings = parser.parseAll(TSVFile, "UTF-16");
-        printparser();
+        //registData();
+
+
     }
 
-    public void printparser() throws UnsupportedEncodingException {
+    public void registData() {
 
         for(int i=0;i<strings.size();i++){
-            for(String i11 : strings.get(i))
-                System.out.println(i11);
-
+//            dataObjects.add(new DataObject(strings.get(i)[1], Integer.parseInt(strings.get(i)[0]), strings.get(i)[2]));
+//            System.out.println(dataObjects.get(i));
+            //results.add()
         }
+
     }
 }

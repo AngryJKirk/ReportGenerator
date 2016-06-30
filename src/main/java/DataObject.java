@@ -14,5 +14,24 @@ public class DataObject {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "DataObject{" +
+                "number=" + number +
+                ", date='" + date + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

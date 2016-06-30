@@ -72,7 +72,7 @@ public class XMLReader extends DefaultHandler {
         //XMLReader xmlReader = new XMLReader("settings.xml");
         parser.parse(XMLFile, this );
         paramsMerge();
-        tableParams.printParams();
+        //tableParams.printParams();
     }
 
     private void paramsMerge(){
@@ -80,5 +80,9 @@ public class XMLReader extends DefaultHandler {
             tableParams.addColumn(titles.get(i), width.get(i));
 
         }
+    }
+
+    public TableParams getTableParams() {
+        return tableParams;
     }
 }

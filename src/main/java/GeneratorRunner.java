@@ -16,5 +16,7 @@ public class GeneratorRunner {
         xmlReader.startParse();
         TSVReader tsvReader = new TSVReader("source-data.tsv");
         tsvReader.parser();
+        TableBuilder tableBuilder = new TableBuilder(xmlReader.getTableParams(),tsvReader.getStrings());
+        tableBuilder.build();
     }
 }
